@@ -639,11 +639,9 @@ int main(int argc, char** argv)
     }
     
     // main frame loop
-    while (true)
+    while (!osgdata.viewer->done() && vsgdata.viewer->advanceToNextFrame())
     {
         osgdata.viewer->frame();
-
-        vsgdata.viewer->advanceToNextFrame();
 
         // pass any events into EventHandlers assigned to the Viewer
         vsgdata.viewer->handleEvents();
